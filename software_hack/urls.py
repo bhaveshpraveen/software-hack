@@ -15,7 +15,39 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import render, redirect
+# from kaala import result
+
+d = {
+    0: 'Rice',
+    1: 'Cholam',
+    2: 'Bajra',
+    3: 'Ragi',
+    4: 'BengalGram',
+    5: 'Redgram'
+}
+
+def index(request):
+    if request.method == 'GET':
+        return render(request, 'base.html', {})
+    if request.method == 'POST':
+
+        # l = result()
+        l = [0.0, 0.9666666666666667, 0.03333333333333333, 0.0, 0.0, 0.0]
+        l = {i: j for i, j in enumerate(l)}
+
+        l = [i for i, j in sorted(l.items(), key=lambda x: -x[1])]
+
+
+
+        print(l)
+
+        return render(request, 'result.html', {'data': l})
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index, name='index'),
 ]
