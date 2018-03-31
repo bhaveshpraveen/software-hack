@@ -15,22 +15,11 @@
 </head>
 
 <body>
-    <!-- <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="sass.html">Sass</a>
-                </li>
-                <li>
-                    <a href="badges.html">Components</a>
-                </li>
-                <li>
-                    <a href="collapsible.html">JavaScript</a>
-                </li>
-            </ul>
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo" style="margin-left:20px">Crop Predict</a>
         </div>
-    </nav> -->
+    </nav>
 
     <div class="container">
         <div class="row">
@@ -41,7 +30,6 @@
                         <br>
                         <br>
                         <form action="{% url 'index' %}" method="post">
-                            {% csrf_token %}
                             <div class="row">
                                 <div class="col s6">
                                     Enter rainfall data
@@ -70,8 +58,26 @@
                                     <input placeholder="Growth period" name="growth_period" type="number" class="validate">
                                 </div>
                                 <div class="col s6">
-                                    Enter soil storage
+                                    Enter measured soil storage
                                     <input placeholder="Soul storage" name="soil_storage" type="number" class="validate">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col s6">
+                                    Enter measued soil scape
+                                    <input placeholder="Soil scape" name="g_scape" type="number" class="validate">
+                                </div>
+                                <div class="col s6">
+                                    Select observer soil type
+                                    <!-- <input placeholder="Soul type" name="soil_storage" type="number" class="validate"> -->
+                                    <select class="browser-default" name="soil_type">
+                                        <option value="-1" disabled selected>Soil type</option>
+                                        <option value="-0.5">Clay</option>
+                                        <option value="0">Silt</option>
+                                        <option value="0.5">Peat</option>
+                                        <option value="1">Sand</option>
+                                    </select>
                                 </div>
                             </div>
                             <br>
